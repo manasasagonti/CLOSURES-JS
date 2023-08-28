@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CLOSURES</title>
+</head>
+<body>
+    <h2>QUESTION 1:"    function counter(){
+        var counter = 0;
+    
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+    
+        return IncreaseCounter;
+    }
+    
+    var counter = counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());"</h2>
+    <h3 class="output">The output will be 
+        1
+        2
+        3
+        4
+        The reason behind this is when the counter function has been called the value initially set to 0 and second function incrementing the counter by 1.
+        the alert() is ussed to display as it alert by 4 times the output is 1 2 3 4 . 
+    </h3>
+    <h2>QUESTION 2: "let count = 0;
+        (function () {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+          }
+          console.log(count); // What is logged?
+        })();"</h2>
+        <h3 class="output">The output will be 1
+            0
+            The reason behind this is the count variable is initialized to 0 nd the function checks whether the count is 0 or not 
+            and if it is 0 then the local variable count is initialized to 0 and prints 1 and global variable of count will print as 0.
+        </h3>
+        <h2>QUESTION 3:"for (var i = 0; i < 3; i++) {
+            setTimeout(function log() {
+              console.log(i); // What is logged?
+            }, 1000);
+          }"</h2>
+          <h3 class="output">The output will be 3
+            3
+            3
+            the reason behind this is the for loop initializes the i to 0 and with a condition that i should be less than 3 the loop checks that, if the i is less than 3 the code executes inside the loop.
+            the code which is inside the loop calls the setTimeout() which means that it schedule a callbackfunction to be executed after a second
+            the callback function log the current value of i. when the function executes all the log values will be 3
+          </h3>
+          <h2>QUESTION 4: Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</h2>
+          <h2>QUESTION 5: Take a variable in outer function and create an inner function to increase the counter every time it is called</h2>
+          <h2>QUESTION 6: "Print Output
+
+            var a = 12;
+            (function () {
+              alert(a);
+            })();"</h2>
+            <h3 class="output">The output will be 12. It gives a aler box with the value of 12.</h3>
+            <h2>QUESTION 7: "var a = 10;
+                var x = (function () {
+                  var a = 12;
+                  return function () {
+                    alert(a);
+                  };
+                })();
+                x();"</h2>
+                <h3 class="output">The output will be 12. The reason will be when the function is called it returns the code of the inner function and provides an alert box with value of 12. </h3>
+                <h2>QUESTION 8:
+                    "var globalVar = ""xyz"";
+
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        ""outerArg = "" + outerArg + ""\n"" +
+        ""innerArg = "" + innerArg + ""\n"" +
+        ""outerVar = "" + outerVar + ""\n"" +
+        ""innerVar = "" + innerVar + ""\n"" +
+        ""globalVar = "" + globalVar);
+    
+    })(456);
+})(123);"
+                </h2>
+                <h3 class="output">The output will be
+                    outerArg = 123
+    innerArg = 456
+    outerVar = a
+    innerVar = b
+    globalVar = xyz
+    The reason is that at first the outerfunction is executed by passing an argument with the value of 456 and calling again by the value of 123 for the innerArg.
+
+                </h3>
+          <script src="index.js"></script>
+</body>
+</html>
